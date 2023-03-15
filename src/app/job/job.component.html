@@ -1,0 +1,38 @@
+
+
+<div class="container">
+  <h2>Job Table</h2>
+  <div class="form-group">
+    <label for="search">Search:</label>
+    <input [(ngModel)]="searchText" (input)="search()" type="text" class="form-control" id="search" placeholder="Search job title">
+  </div>
+  <div class="form-group">
+    <label for="salaryFilter">Salary Filter:</label>
+    <select [(ngModel)]="salaryFilter" (change)="search()" class="form-control" id="salaryFilter">
+      <option value="">All</option>
+      <option value="1">Below $100,000</option>
+      <option value="2">$100,000 - $119,999</option>
+      <option value="3">$120,000 and above</option>
+    </select>
+  </div>
+  <table class="table table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Company</th>
+        <th>Location</th>
+        <th>Salary</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let job of search()">
+        <td>{{job.id}}</td>
+        <td>{{job.title}}</td>
+        <td>{{job.company}}</td> <!-- Add this line -->
+        <td>{{job.location}}</td> <!-- Add this line -->
+        <td>{{job.salary}}</td> <!-- Add this line -->
+      </tr>
+    </tbody>
+  </table>
+</div>

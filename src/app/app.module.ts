@@ -11,6 +11,8 @@ import { StudentDashboardComponent } from './student-dashboard/student-dashboard
 import { NavComponent } from './nav/nav.component';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
 import { StudentHomeComponent } from './student-home/student-home.component';
+import { JobComponent } from './job/job.component';
+import { FormsModule } from '@angular/forms';
 
 var routes: any = [
   {
@@ -27,15 +29,19 @@ var routes: any = [
     path: 'studentHome',
     component: StudentHomeComponent
   },
+  {
+    path: 'jobs',
+    component: JobComponent
+  }
 
   ];
 
 @NgModule({
   declarations: [
-    AppComponent, LoginComponent,StudentDashboardComponent, NavComponent, StudentProfileComponent, StudentHomeComponent],
+    AppComponent, LoginComponent,StudentDashboardComponent, NavComponent, StudentProfileComponent, StudentHomeComponent, JobComponent],
   imports: [
     BrowserModule,
-    HttpClientModule, RouterModule.forRoot(routes)
+    HttpClientModule, RouterModule.forRoot(routes), FormsModule
   ],
   providers: [WebService],
   bootstrap: [AppComponent]
