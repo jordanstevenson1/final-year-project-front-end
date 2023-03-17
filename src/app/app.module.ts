@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { WebService } from './web.service';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 import { AppComponent } from './app.component';
@@ -41,7 +43,8 @@ var routes: any = [
     AppComponent, LoginComponent,StudentDashboardComponent, NavComponent, StudentProfileComponent, StudentHomeComponent, JobComponent],
   imports: [
     BrowserModule,
-    HttpClientModule, RouterModule.forRoot(routes), FormsModule
+    HttpClientModule, RouterModule.forRoot(routes), FormsModule, MatTableModule,
+    MatPaginatorModule
   ],
   providers: [WebService],
   bootstrap: [AppComponent]

@@ -1,51 +1,32 @@
-import { Component } from '@angular/core';
-
-interface Job {
-  id: number;
-  title: string;
-  company: string;
-  location: string;
-  salary: number;
-}
+import { Component, OnInit } from '@angular/core';
+import { WebService, Job } from '../web.service';
 
 @Component({
   selector: 'app-job',
   templateUrl: './job.component.html',
   styleUrls: ['./job.component.css']
 })
+export class JobComponent implements OnInit {
+  jobs: Job[] = [];
+  totalPages: number = 1;
+  currentPage: number = 1;
+  pageSize: number = 10;
 
+  constructor(private webService: WebService) {}
 
-
-
-export class JobComponent {
-  jobs: Job[] = [
-    { id: 1, title: 'Software Engineer', company: 'Tech Corp', location: 'New York', salary: 100000 },
-    { id: 2, title: 'Product Manager', company: 'Innovate Inc', location: 'San Francisco', salary: 120000},
-    { id: 3, title: 'Data Scientist', company: 'Data Co', location: 'Seattle', salary: 110000 },
-    { id: 4, title: 'UX Designer', company: 'Design Studio', location: 'Los Angeles', salary: 90000 }
-  ];
-
-  searchText = '';
-  salaryFilter = '';
-
-  search() {
-    return this.jobs.filter(job =>
-      job.title.toLowerCase().includes(this.searchText.toLowerCase()) &&
-      (this.salaryFilter === '' || this.isJobWithinSalaryRange(job))
-    );
+  ngOnInit() {
+    this.loadJobs(this.currentPage, this.pageSize);
   }
 
-  isJobWithinSalaryRange(job: Job) {
-    switch (this.salaryFilter) {
-      case '1':
-        return job.salary < 100000;
-      case '2':
-        return job.salary >= 100000 && job.salary < 120000;
-      case '3':
-        return job.salary >= 120000;
-      default:
-        return true;
-    }
+  loadJobs(page: number, pageSize: number) {
+    this.webService.getJobs(page, pageSize).subscribe((response) => {
+      this.jobs = response.jobs;
+      this.totalPages = response.totalPages;
+      this.currentPage = page;
+    });
   }
 
+  goToPage(page: number) {
+    this.loadJobs(page, this.pageSize);
+  }
 }

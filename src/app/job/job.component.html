@@ -1,38 +1,59 @@
-
-
 <div class="container">
   <h2>Job Table</h2>
   <div class="form-group">
     <label for="search">Search:</label>
-    <input [(ngModel)]="searchText" (input)="search()" type="text" class="form-control" id="search" placeholder="Search job title">
-  </div>
-  <div class="form-group">
-    <label for="salaryFilter">Salary Filter:</label>
-    <select [(ngModel)]="salaryFilter" (change)="search()" class="form-control" id="salaryFilter">
-      <option value="">All</option>
-      <option value="1">Below $100,000</option>
-      <option value="2">$100,000 - $119,999</option>
-      <option value="3">$120,000 and above</option>
-    </select>
+    <input type="text" class="form-control" id="search" placeholder="Search job title" />
   </div>
   <table class="table table-bordered table-hover">
     <thead class="thead-dark">
       <tr>
         <th>ID</th>
-        <th>Title</th>
-        <th>Company</th>
+        <th>Company ID</th>
+        <th>Industry</th>
         <th>Location</th>
+        <th>Job Title</th>
+        <th>Job Type</th>
+        <th>Description</th>
         <th>Salary</th>
+        <th>Required Skills</th>
+        <th>Required Qualifications</th>
+        <th>Responsibilities</th>
+        <th>Application Deadline</th>
+        <th>Recruiter ID</th>
+        <th>Date Posted</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let job of search()">
-        <td>{{job.id}}</td>
-        <td>{{job.title}}</td>
-        <td>{{job.company}}</td> <!-- Add this line -->
-        <td>{{job.location}}</td> <!-- Add this line -->
-        <td>{{job.salary}}</td> <!-- Add this line -->
+      <tr *ngFor="let job of jobs">
+        <td>{{ job.jobid }}</td>
+        <td>{{ job.companyid }}</td>
+        <td>{{ job.industry }}</td>
+        <td>{{ job.location }}</td>
+        <td>{{ job.jobtitle }}</td>
+        <td>{{ job.jobtype }}</td>
+        <td>{{ job.description }}</td>
+        <td>{{ job.salary }}</td>
+        <td>{{ job.requiredskills }}</td>
+        <td>{{ job.requiredqualifications }}</td>
+        <td>{{ job.responsibilities }}</td>
+        <td>{{ job.applicationdeadline }}</td>
+        <td>{{ job.recruiterid }}</td>
+        <td>{{ job.dateposted }}</td>
       </tr>
+      
     </tbody>
   </table>
+  <nav aria-label="Job pagination">
+    <ul class="pagination">
+      <li class="page-item" [ngClass]="{ 'disabled': currentPage === 1 }">
+        <button class="page-link" (click)="goToPage(currentPage - 1)">Previous</button>
+      </li>
+      <li class="page-item" *ngFor="let page of [].constructor(totalPages) as index" [ngClass]="{ 'active': currentPage === index + 1 }">
+        <button class="page-link" (click)="goToPage(index + 1)">{{ index + 1 }}</button>
+      </li>
+      <li class="page-item" [ngClass]="{ 'disabled': currentPage === totalPages }">
+        <button class="page-link" (click)="goToPage(currentPage + 1)">Next</button>
+      </li>
+    </ul>
+  </nav>
 </div>

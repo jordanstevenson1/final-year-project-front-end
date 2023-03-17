@@ -1,0 +1,45 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .table {
+    font-size: 0.9rem;
+  }
+  
+  th {
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  tbody tr {
+    text-align: center;
+  }
+  
+  td {
+    vertical-align: middle !important;
+  }
+  
+  .page-link {
+    border: none;
+    border-radius: 0 !important;
+    color: #007bff !important;
+    background-color: #fff !important;
+    transition: all 0.3s ease;
+  }
+  
+  .page-link:hover {
+    background-color: #007bff !important;
+    color: #fff !important;
+  }
+  
+  .page-item.active .page-link {
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+    color: #fff !important;
+  }
+  
