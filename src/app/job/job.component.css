@@ -43,3 +43,6 @@
     color: #fff !important;
   }
   
+  .selected-card {
+    border: 1px solid blue;
+  }

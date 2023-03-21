@@ -17,6 +17,7 @@ responsibilities: string;
 applicationdeadline: Date;
 recruiterid: number;
 dateposted: Date;
+companyname: string;
 }
 
 @Injectable({
