@@ -1,0 +1,79 @@
+<!-- user-signup.component.html -->
+<div class="container" style="margin-top: 80px;">
+    <h2>Sign up</h2>
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary" [class.active]="isStudentForm" (click)="showStudentForm()">Student</button>
+      <button type="button" class="btn btn-primary" [class.active]="!isStudentForm" (click)="showRecruiterForm()">Recruiter</button>
+    </div>
+    <form *ngIf="isStudentForm" (ngSubmit)="onStudentSubmit()" #studentForm="ngForm">
+      <div class="form-group">
+        <label for="studentForename">Forename</label>
+        <input type="text" class="form-control" id="studentForename" [(ngModel)]="student.studentForename" name="studentForename" required>
+      </div>
+      <div class="form-group">
+        <label for="studentSurname">Surname</label>
+        <input type="text" class="form-control" id="studentSurname" [(ngModel)]="student.studentSurname" name="studentSurname" required>
+      </div>
+      <div class="form-group">
+        <label for="DOB">Date of Birth</label>
+        <input type="date" class="form-control" id="DOB" [(ngModel)]="student.DOB" name="DOB" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" [(ngModel)]="student.email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="courseTitle">Course Title</label>
+        <input type="text" class="form-control" id="courseTitle" [(ngModel)]="student.courseTitle" name="courseTitle" required>
+      </div>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" [(ngModel)]="student.username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" [(ngModel)]="student.password" name="password" required>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!studentForm.valid">Submit</button>
+    </form>
+    <form *ngIf="!isStudentForm" (ngSubmit)="onRecruiterSubmit()" #recruiterForm="ngForm">
+      <div class="form-group">
+        <label for="recruiterForename">Forename</label>
+        <input type="text" class="form-control" id="recruiterForename" [(ngModel)]="recruiter.recruiterForename" name="recruiterForename" required>
+      </div>
+      <div class="form-group">
+        <label for="recruiterSurname">Surname</label>
+        <input type="text" class="form-control" id="recruiterSurname" [(ngModel)]="recruiter.recruiterSurname" name="recruiterSurname" required>
+      </div>
+      <div class="form-group">
+        <label for="remail">Email</label>
+        <input type="email" class="form-control" id="remail" [(ngModel)]="recruiter.remail" name="remail" required>
+    </div>
+    <div class="form-group">
+      <label for="companyID">Company ID</label>
+      <input type="number" class="form-control" id="companyID" [(ngModel)]="recruiter.companyID" name="companyID" required>
+    </div>
+    <div class="form-group">
+      <label for="role">Role</label>
+      <input type="text" class="form-control" id="role" [(ngModel)]="recruiter.role" name="role" required>
+    </div>
+    <div class="form-group">
+      <label for="industryFocus">Industry Focus</label>
+      <input type="text" class="form-control" id="industryFocus" [(ngModel)]="recruiter.industryFocus" name="industryFocus" required>
+    </div>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" id="username" [(ngModel)]="recruiter.username" name="username" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" [(ngModel)]="recruiter.password" name="password" required>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!recruiterForm.valid">Submit</button>
+</form>
+<div *ngIf="signupSuccess" class="alert alert-success">
+  Account created successfully! Please login to continue.
+  <button class="btn btn-primary" (click)="navigateToLogin()">Login</button>
+</div>
+</div>
+  

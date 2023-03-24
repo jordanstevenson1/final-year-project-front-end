@@ -32,8 +32,6 @@ export class WebService {
     return this.http.get<{ jobs: Job[], totalPages: number }>(`${this.API_URL}/jobs?page=${page}&pageSize=${pageSize}`);
   }
 
-
-
   searchJobs(location: string, jobTitle: string, industry: string, company: string): Observable<{ jobs: Job[] }> {
     let params = new HttpParams();
     if (location) {
@@ -50,10 +48,21 @@ export class WebService {
     }
     return this.http.get<{ jobs: Job[] }>(`${this.API_URL}/jobs/search`, { params });
   }
-  
+
   getStudents() {
     return this.http.get('/students');
   }
-  
-   
+
+  createStudent(student: any) {
+    return this.http.post(`${this.API_URL}/students`, student);
+  }
+
+  createRecruiter(recruiter: any) {
+    return this.http.post(`${this.API_URL}/recruiters`, recruiter);
+  }
+
+  login(username: string, password: string, userType: string): Observable<any> {
+    let endpoint = userType === 'student' ? '/login/student' : '/login/recruiter';
+    return this.http.post(`${this.API_URL}${endpoint}`, { username, password });
+  }
 }
