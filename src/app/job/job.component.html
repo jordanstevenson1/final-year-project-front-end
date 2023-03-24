@@ -1,5 +1,22 @@
 <div class="container" style="margin-top: 80px;">
-  <h2>Job Listings</h2>
+  <h3>Job Search</h3>
+<!-- Add search form -->
+<form (submit)="searchJobs(location, jobTitle, industry, company)" class="mb-4">
+  <div class="input-group">
+    <input type="text" [(ngModel)]="location" name="location" class="form-control" placeholder="Location">
+    <input type="text" [(ngModel)]="jobTitle" name="jobTitle" class="form-control" placeholder="Job Title">
+    <input type="text" [(ngModel)]="industry" name="industry" class="form-control" placeholder="Industry e.g. IT">
+    <input type="text" [(ngModel)]="company" name="company" class="form-control" placeholder="Company">
+    <div class="input-group-append" style="margin-left: 10px;">
+      <button type="submit" class="btn btn-outline-primary">Search</button>
+      <button *ngIf="location || jobTitle || industry || company" (click)="resetSearch()" class="btn btn-outline-danger" style="margin-left: 10px;">X</button>
+    </div>
+  </div>
+</form>
+<div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+  {{ errorMessage }}
+</div>
+<h3>Job Listings</h3>
   <div class="row">
     <div class="col-md-6 mb-4" *ngFor="let job of jobs">
       <div class="card h-100">
@@ -7,7 +24,7 @@
           <h5 class="card-title">{{ job.jobtitle }}</h5>
           <h6 class="card-subtitle mb-2 text-muted">{{ job.companyname }}</h6>
           <p class="card-text">{{ job.description }}</p>
-          <button class="btn btn-info" (click)="showJobDetails(job)">View Job Details</button>
+          <button class="btn btn-link" (click)="showJobDetails(job)">View Details</button>
         </div>
       </div>
     </div>
@@ -25,7 +42,6 @@
             <li>Required Qualifications: {{ selectedJob.requiredqualifications }}</li>
             <li>Responsibilities: {{ selectedJob.responsibilities }}</li>
             <li>Application Deadline: {{ selectedJob.applicationdeadline | date: 'medium' }}</li>
-            <li>Recruiter ID: {{ selectedJob.recruiterid }}</li>
             <li>Date Posted: {{ selectedJob.dateposted | date: 'medium' }}</li>
           </ul>
           <button class="btn btn-primary" (click)="hideJobDetails()">Close</button>
@@ -34,17 +50,20 @@
     </div>
   </div>
 
-  <nav aria-label="Job pagination">
-    <ul class="pagination">
-      <li class="page-item" [ngClass]="{ 'disabled': currentPage === 1 }">
-        <button class="page-link" (click)="goToPage(currentPage - 1)">Previous</button>
-      </li>
-      <li class="page-item" *ngFor="let page of pagesArray">
-        <button class="page-link" (click)="goToPage(page)" [ngClass]="{ 'active': currentPage === page }">{{ page }}</button>
-      </li>
-      <li class="page-item" [ngClass]="{ 'disabled': currentPage === totalPages }">
-        <button class="page-link" (click)="goToPage(currentPage + 1)">Next</button>
-      </li>
-    </ul>
-  </nav>
+  <div class="d-flex justify-content-center">
+    <nav aria-label="Job pagination">
+      <ul class="pagination">
+        <li class="page-item" [ngClass]="{ 'disabled': currentPage === 1 }">
+          <button class="page-link" (click)="goToPage(currentPage - 1)">Previous</button>
+        </li>
+        <li class="page-item" *ngFor="let page of pagesArray">
+          <button class="page-link" (click)="goToPage(page)" [ngClass]="{ 'active': currentPage === page }">{{ page }}</button>
+        </li>
+        <li class="page-item" [ngClass]="{ 'disabled': currentPage === totalPages }">
+          <button class="page-link" (click)="goToPage(currentPage + 1)">Next</button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  
 </div>
