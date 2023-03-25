@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
@@ -6,7 +6,7 @@ import { AuthService } from '../auth.service';
   selector: 'app-login',
   templateUrl: './login.component.html'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   username: string = '';
   password: string = '';
   errorMessage: string = '';
@@ -15,21 +15,14 @@ export class LoginComponent {
 
   login() {
     this.authService.login(this.username, this.password).subscribe({
-      next: (response: any) => {
-        console.log("Successful response:", response);
-        // Login successful, navigate to the appropriate dashboard
-        const { userType } = response;
-        if (userType === 'student') {
-          this.router.navigate(['/studentDashboard']);
-        } else if (userType === 'recruiter') {
-          this.router.navigate(['/recruiterDashboard']);
-        }
-      },
+      next: () => {}, // You can leave this empty or remove it.
       error: (error) => {
         console.log("Error response:", error);
         this.errorMessage = error.message;
       }
     });
   }
-  
+
+  ngOnInit() {
+  }
 }

@@ -13,3 +13,9 @@ height: calc(100% - 73px);
 height: 100%;
 }
 }
+
+.my-component {
+    background-image: url('assets/full-logo.png');
+    background-size: cover;
+  }
+  

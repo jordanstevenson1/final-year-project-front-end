@@ -17,12 +17,15 @@ import { WebService } from './web.service';
 import { RecruiterDashboardComponent } from './recruiter-dashboard/recruiter-dashboard.component';
 import { AuthService } from './auth.service';
 import { UserSignupComponent } from './user-signup/user-signup.component';
+import { FooterComponent } from './footer/footer.component';
+import { AuthGuard } from './auth.guard';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'studentProfile',
@@ -60,7 +63,8 @@ const routes: Routes = [
     StudentHomeComponent,
     JobComponent,
     RecruiterDashboardComponent,
-    UserSignupComponent
+    UserSignupComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

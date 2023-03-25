@@ -1,11 +1,10 @@
-<header class="fixed-top" *ngIf="isLoggedIn()">
-  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+<header class="fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark" *ngIf="(isLoggedIn$ | async) && userType">
     <div class="container">
       <div class="d-flex align-items-center">
         <div class="mr-3">
-          <img src="assets/setter-nav2.png" alt="Setter Logo" width="90" height="40" class="d-inline-block align-text-top">
+          <img src="assets/setter-nav3.png" alt="Setter Logo" width="90" height="40" class="d-inline-block align-text-top">
         </div>
-        <a class="navbar-brand" routerLink="/">Setter</a>
       </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,35 +12,36 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item" *ngIf="userType === 'student'">
-            <a class="nav-link" routerLink="/studentDashboard">Student Dashboard</a>
-          </li>
-          <li class="nav-item" *ngIf="userType === 'recruiter'">
-            <a class="nav-link" routerLink="/recruiterDashboard">Recruiter Dashboard</a>
-          </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/jobs">Jobs</a>
-          </li>
+            <a class="nav-link font-weight-bold text-white" (click)="logout()">LOGOUT</a>
+          </li>          
+          <ng-container *ngIf="userType === 'student'">
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold text-white" routerLink="/studentDashboard">DASHBOARD</a>
+            </li>
+          </ng-container>
+          <ng-container *ngIf="userType === 'recruiter'">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/recruiterDashboard">Recruiter Dashboard</a>
+            </li>
+          </ng-container>
           <li class="nav-item">
-            <a class="nav-link" (click)="logout()">Logout</a>
+            <a class="nav-link font-weight-bold text-white" routerLink="/jobs">JOBS</a>
           </li>
         </ul>
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link font-weight-bold text-white" routerLink="/studentProfile" *ngIf="userType === 'student'">Profile</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link font-weight-bold text-white" routerLink="/recruiterProfile" *ngIf="userType === 'recruiter'">Profile</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link font-weight-bold text-white" routerLink="/studentSignUp" *ngIf="userType === 'student'">Student Sign Up</a>
-          </li>
+          <ng-container *ngIf="userType === 'student'">
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold text-white" routerLink="/studentProfile">PROFILE</a>
+            </li>
+          </ng-container>
+          <ng-container *ngIf="userType === 'recruiter'">
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold text-white" routerLink="/recruiterProfile">Profile</a>
+            </li>
+          </ng-container>
         </ul>
       </div>
     </div>
   </nav>
 </header>
-
-<main style="margin-top: 90px;">
-  <div class="container pt-4"></div>
-</main>
