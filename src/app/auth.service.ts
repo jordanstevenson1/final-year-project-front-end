@@ -32,6 +32,7 @@ export class AuthService {
     console.log("Successful response:", response);
     // Login successful, store user data in session storage
     const { username, userType } = response;
+    console.log("Storing user data:", { username, userType }); // Add this line
     sessionStorage.setItem('user', JSON.stringify({ username, userType }));
     this.isLoggedIn$.next(true);
     this.userSubject.next({ username, userType });
@@ -42,6 +43,7 @@ export class AuthService {
       this.router.navigate(['/recruiterDashboard']);
     }
   }
+  
 
   handleLoginError(error: any): void {
     console.log("Error response:", error);

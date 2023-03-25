@@ -17,6 +17,8 @@ export class NavComponent implements OnInit, OnDestroy {
   routerEventsSubscription: Subscription | null = null;
   authSubscription: Subscription | null = null;
   isLoggedInSubscription: Subscription | null = null;
+  user$ = this.authService.user$;
+
 
   constructor(private authService: AuthService, private router: Router, private changeDetector: ChangeDetectorRef) {}
 

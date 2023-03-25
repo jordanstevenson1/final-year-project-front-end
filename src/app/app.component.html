@@ -1,6 +1,7 @@
 <ng-container *ngIf="isLoggedIn$ | async">
     <app-nav></app-nav>
 </ng-container>
-<router-outlet></router-outlet>
+<div class="main-content">
+  <router-outlet></router-outlet>
+</div>
 <app-footer></app-footer>
-  
