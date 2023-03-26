@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WebService, Job } from '../web.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-job',
@@ -10,7 +11,7 @@ export class JobComponent implements OnInit {
   jobs: Job[] = [];
   totalPages: number = 1;
   currentPage: number = 1;
-  pageSize: number = 4; // number of jobs present on screen
+  pageSize: number = 4;
   pagesArray: number[] = [];
   selectedJob: Job | null = null;
   location: string = '';
@@ -19,8 +20,10 @@ export class JobComponent implements OnInit {
   company: string = '';
   errorMessage: string | null = null;
 
-
-  constructor(private webService: WebService) {}
+  constructor(
+    private webService: WebService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {
     this.loadJobs(this.currentPage, this.pageSize);
@@ -53,7 +56,6 @@ export class JobComponent implements OnInit {
     );
   }
   
-
   resetSearch() {
     this.location = '';
     this.jobTitle = '';
@@ -79,4 +81,19 @@ export class JobComponent implements OnInit {
   hideJobDetails() {
     this.selectedJob = null;
   }
+
+  toggleBookmark(job: Job) {
+    const studentId = this.authService.getUserId();
+    if (!studentId) {
+      // Show a message to the user that they need to log in to bookmark jobs
+      return;
+    }
+    
+    this.webService.toggleBookmark(job.jobid).subscribe(() => {
+      job.bookmarked = !job.bookmarked;
+    }, (error) => {
+      console.log(error);
+    });
+  }
+
 }

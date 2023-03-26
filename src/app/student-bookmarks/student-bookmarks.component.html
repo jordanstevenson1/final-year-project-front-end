@@ -1,0 +1,19 @@
+<div class="container" style="margin-top: 80px;">
+    <h3>Bookmarked Jobs</h3>
+    <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+      {{ errorMessage }}
+    </div>
+    <div class="row">
+      <div class="col-md-6 mb-4" *ngFor="let job of bookmarkedJobs">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">{{ job.jobtitle }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ job.companyname }}</h6>
+            <p class="card-text">{{ job.description }}</p>
+            <button class="btn btn-link" (click)="onViewJobDetails(job)">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { AuthService } from './auth.service';
 
 export interface Job {
   jobid: number;
@@ -18,6 +19,7 @@ export interface Job {
   recruiterid: number;
   dateposted: Date;
   companyname: string;
+  bookmarked: boolean;
 }
 
 @Injectable({
@@ -26,7 +28,7 @@ export interface Job {
 export class WebService {
   private API_URL = 'http://localhost:5000';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authService: AuthService) { }
 
   getJobs(page: number, pageSize: number): Observable<{ jobs: Job[], totalPages: number }> {
     return this.http.get<{ jobs: Job[], totalPages: number }>(`${this.API_URL}/jobs?page=${page}&pageSize=${pageSize}`);
@@ -65,4 +67,25 @@ export class WebService {
     let endpoint = userType === 'student' ? '/login/student' : '/login/recruiter';
     return this.http.post(`${this.API_URL}${endpoint}`, { username, password });
   }
+
+
+addBookmark(studentId: number, jobId: number): Observable<any> {
+  return this.http.post(`${this.API_URL}/bookmarks/add`, { studentid: studentId, jobid: jobId });
+}
+
+removeBookmark(studentId: number, jobId: number): Observable<any> {
+  return this.http.request('DELETE', `${this.API_URL}/bookmarks/remove`, { body: { studentid: studentId, jobid: jobId } });
+}
+
+getBookmarkedJobs(studentId: number): Observable<{ jobs: Job[] }> {
+  return this.http.get<{ jobs: Job[] }>(`${this.API_URL}/bookmarks`, { params: { studentid: String(studentId) } });
+}
+
+toggleBookmark(jobId: number) {
+  const userId = this.authService.getUserId(); // Add this method to the AuthService
+  const body = { userId, jobId };
+  return this.http.post(`${this.API_URL}/toggleBookmark`, body);
+}
+
+
 }

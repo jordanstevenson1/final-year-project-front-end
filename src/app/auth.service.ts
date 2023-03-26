@@ -31,9 +31,9 @@ export class AuthService {
   handleLoginSuccess(response: any): void {
     console.log("Successful response:", response);
     // Login successful, store user data in session storage
-    const { username, userType } = response;
-    console.log("Storing user data:", { username, userType }); // Add this line
-    sessionStorage.setItem('user', JSON.stringify({ username, userType }));
+    const { username, userType, id } = response;
+    console.log("Storing user data:", { username, userType, id }); // Add this line
+    sessionStorage.setItem('user', JSON.stringify({ username, userType, id }));
     this.isLoggedIn$.next(true);
     this.userSubject.next({ username, userType });
     // Navigate to the appropriate dashboard
@@ -44,12 +44,21 @@ export class AuthService {
     }
   }
   
-
   handleLoginError(error: any): void {
     console.log("Error response:", error);
-    this.isLoggedIn$.next(false);
-    this.userSubject.next(null);
+    // Check if the error status is 401 (Unauthorized)
+    if (error.status === 401) {
+      throw new Error('Invalid username or password');
+    } else {
+      throw new Error('An error occurred while logging in. Please try again later.');
+    }
   }
+  
+  getUserId(): number | null {
+    const user = sessionStorage.getItem('user');
+    return user ? JSON.parse(user).id : null;
+  }
+  
 
   logout() {
     sessionStorage.removeItem('user');

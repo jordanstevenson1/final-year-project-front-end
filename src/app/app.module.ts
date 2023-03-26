@@ -19,6 +19,7 @@ import { AuthService } from './auth.service';
 import { UserSignupComponent } from './user-signup/user-signup.component';
 import { FooterComponent } from './footer/footer.component';
 import { AuthGuard } from './auth.guard';
+import { StudentBookmarksComponent } from './student-bookmarks/student-bookmarks.component';
 
 
 const routes: Routes = [
@@ -50,7 +51,12 @@ const routes: Routes = [
   {
     path: 'recruiterDashboard',
     component: RecruiterDashboardComponent
+  },
+  {
+    path: 'bookmarks',
+    component: StudentBookmarksComponent
   }
+
 ];
 
 @NgModule({
@@ -64,7 +70,8 @@ const routes: Routes = [
     JobComponent,
     RecruiterDashboardComponent,
     UserSignupComponent,
-    FooterComponent
+    FooterComponent,
+    StudentBookmarksComponent
   ],
   imports: [
     BrowserModule,

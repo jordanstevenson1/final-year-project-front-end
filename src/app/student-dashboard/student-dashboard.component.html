@@ -2,31 +2,37 @@
   <div class="row">
     <div class="col-md-4">
       <div class="card h-100">
-        <img src="assets/search.png" class="card-img-top" alt="...">
+        <a [routerLink]="['/jobs']">
+          <img src="assets/search.png" class="card-img-top" alt="...">
+        </a>
         <div class="card-body">
           <h5 class="card-title"><strong>SEARCH JOBS</strong></h5>
           <p class="card-text">Search for available jobs that match your skills and interests.</p>
-          <a href="/jobs" class="btn btn-link">Search for a job</a>
+          <a [routerLink]="['/jobs']" class="btn btn-link">Search for a job</a>
         </div>
       </div>
     </div>
     <div class="col-md-4">
       <div class="card h-100">
-        <img src="assets/bookmark.png" class="card-img-top" alt="...">
+        <a [routerLink]="['/bookmarks']">
+          <img src="assets/bookmark.png" class="card-img-top" alt="...">
+        </a>
         <div class="card-body">
           <h5 class="card-title"><strong>BOOKMARKED JOBS</strong></h5>
           <p class="card-text">View and manage your bookmarked jobs for future reference.</p>
-          <a href="#" class="btn btn-link">Go to Bookedmarked Jobs</a>
+          <a [routerLink]="['/bookmarked']" class="btn btn-link">Go to Bookmarked Jobs</a>
         </div>
       </div>
     </div>
     <div class="col-md-4">
       <div class="card h-100">
-        <img src="assets/applied.png" class="card-img-top" alt="...">
+        <a [routerLink]="['/applied']">
+          <img src="assets/applied.png" class="card-img-top" alt="...">
+        </a>
         <div class="card-body">
           <h5 class="card-title"><strong>APPLIED JOBS</strong></h5>
           <p class="card-text">View and manage the jobs you have already applied for.</p>
-          <a href="#" class="btn btn-link">Go to Applied Jobs</a>
+          <a [routerLink]="['/applied']" class="btn btn-link">Go to Applied Jobs</a>
         </div>
       </div>
     </div>
