@@ -20,7 +20,12 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const isLoggedIn = this.authService.isLoggedIn$.value;
-
+  
+    if (!isLoggedIn && state.url !== '/') {
+      this.router.navigate(['/']);
+      return false;
+    }
+  
     if (isLoggedIn && state.url === '/') {
       const userType = this.authService.getUserType();
       if (userType === 'student') {
@@ -30,6 +35,7 @@ export class AuthGuard implements CanActivate {
       }
       return false;
     }
+  
     return true;
   }
 }

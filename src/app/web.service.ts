@@ -20,6 +20,8 @@ export interface Job {
   dateposted: Date;
   companyname: string;
   bookmarked: boolean;
+  bookmarkedText: string;
+  errorMessage: string | null;
 }
 
 @Injectable({

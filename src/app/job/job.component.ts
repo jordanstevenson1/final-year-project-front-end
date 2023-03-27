@@ -88,12 +88,22 @@ export class JobComponent implements OnInit {
       // Show a message to the user that they need to log in to bookmark jobs
       return;
     }
-    
+  
+    if (job.bookmarked) {
+      job.errorMessage = "This job is already bookmarked!";
+      setTimeout(() => {
+        job.errorMessage = null;
+      }, 3000);
+      return;
+    }
+  
     this.webService.toggleBookmark(job.jobid).subscribe(() => {
       job.bookmarked = !job.bookmarked;
+      job.bookmarkedText = job.bookmarked ? "Bookmarked!" : "Bookmark";
     }, (error) => {
       console.log(error);
     });
   }
+  
 
 }

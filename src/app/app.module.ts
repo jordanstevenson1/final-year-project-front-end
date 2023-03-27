@@ -30,31 +30,38 @@ const routes: Routes = [
   },
   {
     path: 'studentProfile',
-    component: StudentProfileComponent
+    component: StudentProfileComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'studentDashboard',
-    component: StudentDashboardComponent
+    component: StudentDashboardComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'studentHome',
-    component: StudentHomeComponent
+    component: StudentHomeComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'jobs',
-    component: JobComponent
+    component: JobComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'SignUp',
-    component: UserSignupComponent
+    component: UserSignupComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'recruiterDashboard',
-    component: RecruiterDashboardComponent
+    component: RecruiterDashboardComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'bookmarks',
-    component: StudentBookmarksComponent
+    component: StudentBookmarksComponent,
+    canActivate: [AuthGuard]
   }
 
 ];

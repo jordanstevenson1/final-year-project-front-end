@@ -25,7 +25,10 @@
           <h6 class="card-subtitle mb-2 text-muted">{{ job.companyname }}</h6>
           <p class="card-text">{{ job.description }}</p>
           <button class="btn btn-link" (click)="showJobDetails(job)">View Details</button>
-          <button class="btn btn-outline-primary" (click)="toggleBookmark(job)">Bookmark</button>
+          <button class="btn btn-warning" (click)="toggleBookmark(job)">{{ job.bookmarkedText || 'Bookmark' }}</button>
+          <div *ngIf="job.errorMessage" class="alert alert-danger" role="alert" style="margin-top: 5px;">
+            {{ job.errorMessage }}
+          </div>
         </div>
       </div>
     </div>
@@ -46,7 +49,11 @@
             <li>Date Posted: {{ selectedJob.dateposted | date: 'medium' }}</li>
           </ul>
           <button class="btn btn-primary" (click)="hideJobDetails()">Close</button>
-          <button class="btn btn-outline-primary" (click)="toggleBookmark(selectedJob)">Bookmark</button>     
+          <br>
+          <button class="btn btn-warning" (click)="toggleBookmark(selectedJob)">{{ selectedJob.bookmarkedText || 'Bookmark' }}</button>
+          <div *ngIf="selectedJob.errorMessage" class="alert alert-danger" role="alert" style="margin-top: 5px;">
+            {{ selectedJob.errorMessage }}
+          </div>    
         </div>
       </div>
     </div>
