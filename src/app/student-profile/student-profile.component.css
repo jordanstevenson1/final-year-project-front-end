@@ -42,3 +42,14 @@ body {
     cursor: pointer;
     border: solid 1px #BA68C8
 }
+
+
+.container {
+    margin-top: 80px;
+  }
+
+
+.labels {
+    font-size: 14px;
+  }
+  

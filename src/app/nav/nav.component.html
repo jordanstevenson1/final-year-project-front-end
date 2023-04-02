@@ -38,6 +38,11 @@
               <a class="nav-link font-weight-bold text-white" routerLink="/studentProfile">Profile</a>
             </li>
           </ng-container>
+          <ng-container *ngIf="userType === 'student'">
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold text-white" routerLink="/interviewTips">Helpful Information</a>
+            </li>
+          </ng-container>
           <ng-container *ngIf="userType === 'recruiter'">
             <li class="nav-item">
               <a class="nav-link font-weight-bold text-white" routerLink="/recruiterProfile">Profile</a>

@@ -16,7 +16,7 @@ export class StudentBookmarksComponent implements OnInit {
   ngOnInit(): void {
     const studentId = this.authService.getUserId();
     if (studentId) {
-      this.webService.getBookmarkedJobs(studentId).subscribe(
+      this.webService.getBookmarkedJobs(+studentId).subscribe( // Cast studentId to number using '+' operator
         (data) => {
           this.bookmarkedJobs = data.jobs;
         },

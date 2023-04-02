@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
@@ -20,6 +19,9 @@ import { UserSignupComponent } from './user-signup/user-signup.component';
 import { FooterComponent } from './footer/footer.component';
 import { AuthGuard } from './auth.guard';
 import { StudentBookmarksComponent } from './student-bookmarks/student-bookmarks.component';
+import { UploadJobsComponent } from './upload-jobs/upload-jobs.component';
+import { InterviewTipsComponent } from './interview-tips/interview-tips.component';
+import { CommonModule } from '@angular/common';
 
 
 const routes: Routes = [
@@ -50,8 +52,7 @@ const routes: Routes = [
   },
   {
     path: 'SignUp',
-    component: UserSignupComponent,
-    canActivate: [AuthGuard]
+    component: UserSignupComponent
   },
   {
     path: 'recruiterDashboard',
@@ -62,6 +63,14 @@ const routes: Routes = [
     path: 'bookmarks',
     component: StudentBookmarksComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'uploadJobs',
+    component: UploadJobsComponent
+  },
+  {
+    path: 'interviewTips',
+    component: InterviewTipsComponent
   }
 
 ];
@@ -78,7 +87,9 @@ const routes: Routes = [
     RecruiterDashboardComponent,
     UserSignupComponent,
     FooterComponent,
-    StudentBookmarksComponent
+    StudentBookmarksComponent,
+    UploadJobsComponent,
+    InterviewTipsComponent
   ],
   imports: [
     BrowserModule,
@@ -86,7 +97,9 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     FormsModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    CommonModule
+    
   ],
   providers: [
     WebService,

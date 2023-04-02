@@ -1,7 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
+import { catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { throwError } from 'rxjs';
+
+
+
 
 export interface Job {
   jobid: number;
@@ -22,6 +28,19 @@ export interface Job {
   bookmarked: boolean;
   bookmarkedText: string;
   errorMessage: string | null;
+}
+
+export interface StudentProfile {
+  studentid: number;
+  studentforename: string;
+  studentsurname: string;
+  dob: Date;
+  email: string;
+  courseid: number;
+  coursetitle: string;
+  courselevel: string;
+  username: string;
+  password: string;
 }
 
 @Injectable({
@@ -57,13 +76,30 @@ export class WebService {
     return this.http.get('/students');
   }
 
-  createStudent(student: any) {
-    return this.http.post(`${this.API_URL}/students`, student);
+  createStudent(student: any): Observable<any> {
+    return this.http.post(`${this.API_URL}/students`, student)
+      .pipe(
+        catchError(error => {
+          if (error.status === 400 && error.error.error === 'Email or username already exists') {
+            return of({ errorMessage: 'Email or username already exists' });
+          } else {
+            return throwError(error);
+          }
+        })
+      );
   }
+  
 
-  createRecruiter(recruiter: any) {
-    return this.http.post(`${this.API_URL}/recruiters`, recruiter);
+  createRecruiter(recruiter: any): Observable<any> {
+    return this.http.post(`${this.API_URL}/recruiters`, recruiter).pipe(
+      catchError(error => {
+        const errorMessage = error.error.message;
+        console.error('Error creating recruiter:', errorMessage);
+        return throwError(errorMessage);
+      })
+    );
   }
+  
 
   login(username: string, password: string, userType: string): Observable<any> {
     let endpoint = userType === 'student' ? '/login/student' : '/login/recruiter';
@@ -84,10 +120,31 @@ getBookmarkedJobs(studentId: number): Observable<{ jobs: Job[] }> {
 }
 
 toggleBookmark(jobId: number) {
-  const userId = this.authService.getUserId(); // Add this method to the AuthService
+  const userId = this.authService.getUserId(); 
   const body = { userId, jobId };
   return this.http.post(`${this.API_URL}/toggleBookmark`, body);
 }
+
+uploadJobsCSV(formData: FormData): Observable<any> {
+  return this.http.post(`${this.API_URL}/upload_jobs_csv`, formData);
+}
+
+getStudentProfile(): Observable<StudentProfile> {
+  const headers = new HttpHeaders().set('Content-Type', 'application/json');
+  const userId = this.authService.getUserId();
+  if (!userId) {
+    return throwError('User ID not found in localStorage');
+  }
+  const options = { headers: headers };
+  return this.http.get<StudentProfile>(`${this.API_URL}/student/${userId}`, options)
+    .pipe(
+      catchError(error => {
+        console.error('Error getting student profile:', error);
+        return throwError(error);
+      })
+    );
+}
+
 
 
 }
