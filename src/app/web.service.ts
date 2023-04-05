@@ -145,6 +145,90 @@ getStudentProfile(): Observable<StudentProfile> {
     );
 }
 
+updateStudentProfile(profile: StudentProfile): Observable<any> {
+  const userId = this.authService.getUserId();
+  if (!userId) {
+    return throwError('User ID not found in localStorage');
+  }
+  const options = {
+    headers: new HttpHeaders().set('Content-Type', 'application/json')
+  };
+  return this.http.put(`${this.API_URL}/student/${userId}`, profile, options)
+    .pipe(
+      catchError(error => {
+        console.error('Error updating student profile:', error);
+        return throwError(error);
+      })
+    );
+}
+
+getApplication(id: number): Observable<any> {
+  return this.http.get(`${this.API_URL}/application/${id}`);
+}
+
+updateApplication(application: any, id: number): Observable<any> {
+  return this.http.put(`${this.API_URL}/application/${id}`, application);
+}
+
+updateApplicationinfo(application: any): Observable<any> {
+  const headers = new HttpHeaders().set('Content-Type', 'application/json');
+  const applicationId = application.applicationid;
+  const options = { headers: headers };
+  return this.http.patch(`${this.API_URL}/application/${applicationId}`, application, options)
+    .pipe(
+      catchError(error => {
+        console.error('Error updating application:', error);
+        return throwError(error);
+      })
+    );
+}
+
+updateApplicationFields(id: number, fieldsToUpdate: any): Observable<any> {
+  return this.http.patch(`${this.API_URL}/application/${id}`, fieldsToUpdate);
+}
+
+getApplicationWithJob(id: number): Observable<any> {
+  return this.http.get<any>(`${this.API_URL}/application-with-job/${id}`);
+}
+
+getJob(jobId: number): Observable<{ job: Job }> {
+  return this.http.get<{ job: Job }>(`${this.API_URL}/jobs/${jobId}`);
+}
+
+submitApplication(jobId: number, applicationData: any): Observable<{ message: string }> {
+  const studentId = this.authService.getUserId();
+  if (!studentId) {
+    return throwError('User ID not found in localStorage');
+  }
+
+  const httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  };
+
+  const payload = {
+    ...applicationData,
+    studentid: studentId,
+    jobid: jobId,
+  };
+
+  // Update the endpoint here:
+  return this.http.patch<{ message: string }>(`${this.API_URL}/submit-application`, payload, httpOptions);
+}
+
+
+checkIfApplied(studentId: number, jobId: number) {
+  return this.http.get<{ message: string, hasApplied: boolean, latestApplication?: any }>(
+    `${this.API_URL}/check-if-applied?studentid=${studentId}&jobid=${jobId}`
+  );
+}
+
+
+// Inside WebService class
+getLatestApplication(studentId: number) {
+  return this.http.get<{ message: string, latestApplication?: any }>(`${this.API_URL}/latest-application?studentid=${studentId}`);
+}
+
+
 
 
 }

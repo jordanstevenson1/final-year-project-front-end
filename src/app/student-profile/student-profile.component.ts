@@ -17,4 +17,12 @@ export class StudentProfileComponent implements OnInit {
       .subscribe(profile => this.studentProfile = profile);
   }
 
+  submitProfile(): void {
+    this.webService.updateStudentProfile(this.studentProfile)
+      .subscribe(
+        response => console.log('Profile updated successfully'),
+        error => console.error('Error updating profile:', error)
+      );
+  }
+
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { WebService, Job } from '../web.service';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-job',
@@ -22,7 +24,8 @@ export class JobComponent implements OnInit {
 
   constructor(
     private webService: WebService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router 
   ) {}
 
   ngOnInit() {
@@ -103,6 +106,10 @@ export class JobComponent implements OnInit {
     }, (error) => {
       console.log(error);
     });
+  }
+  
+  applyJob(job: any) {
+    this.router.navigate(['/applyJob', job.jobid]); 
   }
   
 

@@ -22,6 +22,8 @@ import { StudentBookmarksComponent } from './student-bookmarks/student-bookmarks
 import { UploadJobsComponent } from './upload-jobs/upload-jobs.component';
 import { InterviewTipsComponent } from './interview-tips/interview-tips.component';
 import { CommonModule } from '@angular/common';
+import { StudentApplyJobComponent } from './student-apply-job/student-apply-job.component';
+import { StudentApplicationsComponent } from './student-applications/student-applications.component';
 
 
 const routes: Routes = [
@@ -71,6 +73,10 @@ const routes: Routes = [
   {
     path: 'interviewTips',
     component: InterviewTipsComponent
+  },
+  {
+    path: 'applyJob/:jobId',
+    component: StudentApplyJobComponent
   }
 
 ];
@@ -89,7 +95,9 @@ const routes: Routes = [
     FooterComponent,
     StudentBookmarksComponent,
     UploadJobsComponent,
-    InterviewTipsComponent
+    InterviewTipsComponent,
+    StudentApplyJobComponent,
+    StudentApplicationsComponent
   ],
   imports: [
     BrowserModule,

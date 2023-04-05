@@ -25,7 +25,9 @@
           <h6 class="card-subtitle mb-2 text-muted">{{ job.companyname }}</h6>
           <p class="card-text">{{ job.description }}</p>
           <button class="btn btn-link" (click)="showJobDetails(job)">View Details</button>
-          <button class="btn btn-warning" (click)="toggleBookmark(job)">{{ job.bookmarkedText || 'Bookmark' }}</button>
+          <a></a>
+          <button class="btn btn-outline-success" (click)="applyJob(job)">Apply</button>
+          <button class="btn btn-outline-warning" style="margin-left:10px;" (click)="toggleBookmark(job)">{{ job.bookmarkedText || 'Bookmark' }}</button>
           <div *ngIf="job.errorMessage" class="alert alert-danger" role="alert" style="margin-top: 5px;">
             {{ job.errorMessage }}
           </div>
@@ -48,9 +50,8 @@
             <li>Application Deadline: {{ selectedJob.applicationdeadline | date: 'medium' }}</li>
             <li>Date Posted: {{ selectedJob.dateposted | date: 'medium' }}</li>
           </ul>
-          <button class="btn btn-primary" (click)="hideJobDetails()">Close</button>
+          <button class="btn btn-outline-danger" (click)="hideJobDetails()">Close</button>
           <br>
-          <button class="btn btn-warning" (click)="toggleBookmark(selectedJob)">{{ selectedJob.bookmarkedText || 'Bookmark' }}</button>
           <div *ngIf="selectedJob.errorMessage" class="alert alert-danger" role="alert" style="margin-top: 5px;">
             {{ selectedJob.errorMessage }}
           </div>    

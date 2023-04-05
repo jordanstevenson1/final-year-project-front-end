@@ -1,57 +1,56 @@
 <div class="container-fluid mt-5">
-    <div class="row">
-      <div class="col-md-3">
-        <div class="d-flex flex-column align-items-center text-center p-3">
-          <img class="rounded-circle mt-5" width="150px" src="https://icons.veryicon.com/png/o/miscellaneous/two-color-icon-library/user-286.png">
-          <span class="font-weight-bold">{{ studentProfile.studentforename }} {{ studentProfile.studentsurname }}</span>
-          <span class="text-black-50">{{ studentProfile.email }}</span>
-        </div>
-      </div>
-      <div class="col-md-9">
-        <form>
-          <div class="card p-3 py-5 border-0">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-              <h4 class="text-right">Account Information</h4>
-            </div>
-            <div class="row mt-2">
-              <div class="col-md-6">
-                <label class="labels">Name</label>
-                <input type="text" class="form-control" placeholder="First Name" [(ngModel)]="studentProfile.studentforename" name="studentForename" readonly>
-              </div>
-              <div class="col-md-6">
-                <label class="labels">Surname</label>
-                <input type="text" class="form-control" placeholder="Surname" [(ngModel)]="studentProfile.studentsurname" name="studentSurname" readonly>
-              </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-md-6">
-                <label class="labels">Email</label>
-                <input type="text" class="form-control" placeholder="Email" [(ngModel)]="studentProfile.email" name="email" readonly>
-              </div>
-              <div class="col-md-6">
-                <label class="labels">Course ID</label>
-                <input type="text" class="form-control" placeholder="Course ID" [(ngModel)]="studentProfile.courseid" name="courseId" readonly>
-              </div>
-              <div class="col-md-6">
-                <label class="labels">Course Title</label>
-                <input type="text" class="form-control" placeholder="Course Title" [(ngModel)]="studentProfile.coursetitle" name="courseTitle" readonly>
-              </div>
-              <div class="col-md-6">
-                <label class="labels">Course Level</label>
-                <input type="text" class="form-control" placeholder="Course Level" [(ngModel)]="studentProfile.courselevel" name="courseLevel" readonly>
-              </div>
-              <div class="col-md-6">
-                <label class="labels">Username</label>
-                <input type="text" class="form-control" placeholder="Username" [(ngModel)]="studentProfile.username" name="username" readonly>
-              </div>
-            </div>
-            <p></p>
-            <div>
-              <button type="submit" class="btn btn-outline-info">Edit Profile</button>
-            </div>
-          </div>
-        </form>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="d-flex flex-column align-items-center text-center p-3">
+        <img class="rounded-circle mt-5" width="150px" src="https://icons.veryicon.com/png/o/miscellaneous/two-color-icon-library/user-286.png">
+        <span class="font-weight-bold">{{ studentProfile.studentforename }} {{ studentProfile.studentsurname }}</span>
+        <span class="text-black-50">{{ studentProfile.email }}</span>
       </div>
     </div>
+    <div class="col-md-9">
+      <form (submit)="submitProfile()">
+        <div class="card p-3 py-5 border-0">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4 class="text-right">Account Information</h4>
+          </div>
+          <div class="row mt-2">
+            <div class="col-md-6">
+              <label class="labels">Name</label>
+              <input type="text" class="form-control" placeholder="First Name" [(ngModel)]="studentProfile.studentforename" name="studentForename">
+            </div>
+            <div class="col-md-6">
+              <label class="labels">Surname</label>
+              <input type="text" class="form-control" placeholder="Surname" [(ngModel)]="studentProfile.studentsurname" name="studentSurname">
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-6">
+              <label class="labels">Email</label>
+              <input type="text" class="form-control" placeholder="Email" [(ngModel)]="studentProfile.email" name="email">
+            </div>
+            <div class="col-md-6">
+              <label class="labels">Course ID</label>
+              <input type="text" class="form-control" placeholder="Course ID" [(ngModel)]="studentProfile.courseid" name="courseId">
+            </div>
+            <div class="col-md-6">
+              <label class="labels">Course Title</label>
+              <input type="text" class="form-control" placeholder="Course Title" [(ngModel)]="studentProfile.coursetitle" name="courseTitle">
+            </div>
+            <div class="col-md-6">
+              <label class="labels">Course Level</label>
+              <input type="text" class="form-control" placeholder="Course Level" [(ngModel)]="studentProfile.courselevel" name="courseLevel">
+            </div>
+            <div class="col-md-6">
+              <label class="labels">Username</label>
+              <input type="text" class="form-control" placeholder="Username" [(ngModel)]="studentProfile.username" name="username">
+            </div>
+          </div>
+          <p></p>
+          <div>
+            <button type="submit" class="btn btn-outline-info">Save Changes</button>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
-  
+</div>
