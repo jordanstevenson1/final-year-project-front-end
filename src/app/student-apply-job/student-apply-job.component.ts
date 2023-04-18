@@ -12,6 +12,7 @@ export class StudentApplyJobComponent implements OnInit {
   job: Job | null = null;
   jobId: number = 0;
   hasApplied: boolean = false;
+  submissionSuccessful: boolean = false;
 
   application = {
     skills: '',
@@ -63,7 +64,6 @@ export class StudentApplyJobComponent implements OnInit {
     });
   }
   
-
   submitApplication(): void {
     const studentId = this.authService.getUserId();
     if (!studentId) {
@@ -78,13 +78,13 @@ export class StudentApplyJobComponent implements OnInit {
     };
 
     this.webService.submitApplication(this.jobId, applicationData).subscribe((response) => {
-      // Handle success, e.g., show a success message or redirect to another page
+      // Set submissionSuccessful to true after successful submission
+      this.submissionSuccessful = true;
     }, (error) => {
       console.log(error);
       // Handle error, e.g., show an error message
     });
   }
-
 
   fetchLatestApplication(studentId: number): void {
     this.webService.getLatestApplication(studentId).subscribe(response => {
@@ -99,5 +99,4 @@ export class StudentApplyJobComponent implements OnInit {
       }
     });
   }
-  
 }

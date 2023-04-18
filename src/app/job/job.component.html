@@ -26,8 +26,8 @@
           <p class="card-text">{{ job.description }}</p>
           <button class="btn btn-link" (click)="showJobDetails(job)">View Details</button>
           <a></a>
-          <button class="btn btn-outline-success" (click)="applyJob(job)">Apply</button>
-          <button class="btn btn-outline-warning" style="margin-left:10px;" (click)="toggleBookmark(job)">{{ job.bookmarkedText || 'Bookmark' }}</button>
+          <button class="btn btn-outline-success" (click)="applyJob(job)">Apply ✓</button>
+          <button class="btn btn-outline-warning" style="margin-left:10px;" (click)="toggleBookmark(job)">{{ job.bookmarkedText || '★' }}</button>
           <div *ngIf="job.errorMessage" class="alert alert-danger" role="alert" style="margin-top: 5px;">
             {{ job.errorMessage }}
           </div>

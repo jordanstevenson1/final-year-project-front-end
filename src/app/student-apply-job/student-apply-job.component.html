@@ -22,6 +22,10 @@
       <br>
       <button type="submit" class="btn btn-outline-primary" [disabled]="!applicationForm.valid">Submit Application</button>
     </form>
+    <!-- Success message -->
+    <div *ngIf="submissionSuccessful" class="alert alert-success mt-3">
+      Your application has been successfully submitted.
+    </div>
   </ng-container>
 
   <ng-template #appliedMessage>

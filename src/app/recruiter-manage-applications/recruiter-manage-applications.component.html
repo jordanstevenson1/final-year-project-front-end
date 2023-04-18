@@ -1,0 +1,30 @@
+<div class="container" style="margin-top: 80px;">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Application ID</th>
+        <th scope="col">Job ID</th>
+        <th scope="col">Student ID</th>
+        <th scope="col">Status</th>
+        <th scope="col">Skills</th>
+        <th scope="col">Experience</th>
+        <th scope="col">Education</th>
+        <th scope="col">Awards</th>
+        <th scope="col">Recruiter Comments</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let application of applications" (click)="onRowClick(application.applicationId)" style="cursor: pointer;">
+        <td>{{ application.applicationId }}</td>
+        <td>{{ application.jobId }}</td>
+        <td>{{ application.studentId }}</td>
+        <td>{{ application.status }}</td>
+        <td>{{ application.skills }}</td>
+        <td>{{ application.experience }}</td>
+        <td>{{ application.education }}</td>
+        <td>{{ application.awards }}</td>
+        <td>{{ application.recruiterComments }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

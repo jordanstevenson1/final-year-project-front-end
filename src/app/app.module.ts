@@ -24,6 +24,8 @@ import { InterviewTipsComponent } from './interview-tips/interview-tips.componen
 import { CommonModule } from '@angular/common';
 import { StudentApplyJobComponent } from './student-apply-job/student-apply-job.component';
 import { StudentApplicationsComponent } from './student-applications/student-applications.component';
+import { RecruiterManageApplicationsComponent } from './recruiter-manage-applications/recruiter-manage-applications.component';
+import { RecruiterReviewApplicationComponent } from './recruiter-review-application/recruiter-review-application.component';
 
 
 const routes: Routes = [
@@ -77,6 +79,18 @@ const routes: Routes = [
   {
     path: 'applyJob/:jobId',
     component: StudentApplyJobComponent
+  },
+  {
+    path: 'studentApplications',
+    component: StudentApplicationsComponent
+  },
+  {
+    path: 'manageApplications',
+    component: RecruiterManageApplicationsComponent
+  },
+  {
+    path: 'reviewApplication/:applicationId',
+    component: RecruiterReviewApplicationComponent
   }
 
 ];
@@ -97,7 +111,9 @@ const routes: Routes = [
     UploadJobsComponent,
     InterviewTipsComponent,
     StudentApplyJobComponent,
-    StudentApplicationsComponent
+    StudentApplicationsComponent,
+    RecruiterManageApplicationsComponent,
+    RecruiterReviewApplicationComponent
   ],
   imports: [
     BrowserModule,

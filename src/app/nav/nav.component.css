@@ -1,0 +1,21 @@
+.bg-dark {
+    background-color: #343a40 !important;
+  }
+  
+  .navbar-custom {
+    font-weight: 600;
+  }
+  
+  .navbar-custom .nav-link {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .navbar-custom .nav-link:hover {
+    color: white;
+  }
+  
+  .navbar-custom .nav-link.active,
+  .navbar-custom .nav-link:active {
+    color: white;
+  }
+  
