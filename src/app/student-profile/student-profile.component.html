@@ -8,49 +8,49 @@
       </div>
     </div>
     <div class="col-md-9">
-      <form (submit)="submitProfile()">
+      <form (ngSubmit)="submitProfile()">
         <div class="card p-3 py-5 border-0">
           <div class="d-flex justify-content-between align-items-center mb-3">
             <h4 class="text-right">Account Information</h4>
+            <button class="btn btn-light" (click)="toggleEditMode($event)">✎</button>
           </div>
           <div class="row mt-2">
             <div class="col-md-6">
               <label class="labels">Name</label>
-              <input type="text" class="form-control" placeholder="First Name" [(ngModel)]="studentProfile.studentforename" name="studentForename">
+              <input type="text" class="form-control" placeholder="First Name" [(ngModel)]="studentProfile.studentforename" name="studentForename" [readonly]="!editMode">
             </div>
             <div class="col-md-6">
               <label class="labels">Surname</label>
-              <input type="text" class="form-control" placeholder="Surname" [(ngModel)]="studentProfile.studentsurname" name="studentSurname">
+              <input type="text" class="form-control" placeholder="Surname" [(ngModel)]="studentProfile.studentsurname" name="studentSurname" [readonly]="!editMode">
             </div>
           </div>
           <div class="row mt-3">
             <div class="col-md-6">
               <label class="labels">Email</label>
-              <input type="text" class="form-control" placeholder="Email" [(ngModel)]="studentProfile.email" name="email">
+              <input type="text" class="form-control" placeholder="Email" [(ngModel)]="studentProfile.email" name="email" [readonly]="!editMode">
             </div>
             <div class="col-md-6">
               <label class="labels">Course ID</label>
-              <input type="text" class="form-control" placeholder="Course ID" [(ngModel)]="studentProfile.courseid" name="courseId">
+              <input type="text" class="form-control" placeholder="Course ID" [(ngModel)]="studentProfile.courseid" name="courseId" [readonly]="!editMode">
             </div>
             <div class="col-md-6">
               <label class="labels">Course Title</label>
-              <input type="text" class="form-control" placeholder="Course Title" [(ngModel)]="studentProfile.coursetitle" name="courseTitle">
+              <input type="text" class="form-control" placeholder="Course Title" [(ngModel)]="studentProfile.coursetitle" name="courseTitle" [readonly]="!editMode">
             </div>
             <div class="col-md-6">
               <label class="labels">Course Level</label>
-              <input type="text" class="form-control" placeholder="Course Level" [(ngModel)]="studentProfile.courselevel" name="courseLevel">
+              <input type="text" class="form-control" placeholder="Course Level" [(ngModel)]="studentProfile.courselevel" name="courseLevel" [readonly]="!editMode">
             </div>
             <div class="col-md-6">
               <label class="labels">Username</label>
-              <input type="text" class="form-control" placeholder="Username" [(ngModel)]="studentProfile.username" name="username">
+              <input type="text" class="form-control" placeholder="Username" [(ngModel)]="studentProfile.username" name="username" [readonly]="!editMode">
             </div>
           </div>
           <p></p>
-          <div>
-            <button type="submit" class="btn btn-outline-info">Save Changes</button>
+          <div *ngIf="editMode">
+            <button type="submit" class="btn btn-light">Update</button>
           </div>
         </div>
       </form>
     </div>
   </div>
-</div>

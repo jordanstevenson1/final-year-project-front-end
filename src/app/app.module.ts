@@ -28,6 +28,7 @@ import { RecruiterManageApplicationsComponent } from './recruiter-manage-applica
 import { RecruiterReviewApplicationComponent } from './recruiter-review-application/recruiter-review-application.component';
 
 
+
 const routes: Routes = [
   {
     path: '',
@@ -122,7 +123,7 @@ const routes: Routes = [
     FormsModule,
     MatTableModule,
     MatPaginatorModule,
-    CommonModule
+    CommonModule,
     
   ],
   providers: [

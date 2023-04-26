@@ -9,6 +9,7 @@ import { WebService, StudentProfile } from '../web.service';
 export class StudentProfileComponent implements OnInit {
 
   studentProfile!: StudentProfile;
+  editMode = false;
 
   constructor(private webService: WebService) { }
 
@@ -17,10 +18,18 @@ export class StudentProfileComponent implements OnInit {
       .subscribe(profile => this.studentProfile = profile);
   }
 
+  toggleEditMode($event: any): void {
+    $event.preventDefault();
+    this.editMode = !this.editMode;
+  }
+
   submitProfile(): void {
     this.webService.updateStudentProfile(this.studentProfile)
       .subscribe(
-        response => console.log('Profile updated successfully'),
+        response => {
+          console.log('Profile updated successfully');
+          this.editMode = false;
+        },
         error => console.error('Error updating profile:', error)
       );
   }
