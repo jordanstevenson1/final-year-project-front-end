@@ -71,27 +71,33 @@ const routes: Routes = [
   },
   {
     path: 'uploadJobs',
-    component: UploadJobsComponent
+    component: UploadJobsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'interviewTips',
-    component: InterviewTipsComponent
+    component: InterviewTipsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'applyJob/:jobId',
-    component: StudentApplyJobComponent
+    component: StudentApplyJobComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'studentApplications',
-    component: StudentApplicationsComponent
+    component: StudentApplicationsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'manageApplications',
-    component: RecruiterManageApplicationsComponent
+    component: RecruiterManageApplicationsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'reviewApplication/:applicationId',
-    component: RecruiterReviewApplicationComponent
+    component: RecruiterReviewApplicationComponent,
+    canActivate: [AuthGuard]
   }
 
 ];

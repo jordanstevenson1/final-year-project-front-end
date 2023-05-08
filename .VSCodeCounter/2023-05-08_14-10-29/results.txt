@@ -1,0 +1,116 @@
+Date : 2023-05-08 14:10:29
+Directory : c:\Users\jorda\Documents\frontend-final-year-project\src\app
+Total : 73 files,  2302 codes, 37 comments, 390 blanks, all 2729 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| TypeScript |         39 |      1,462 |         25 |        306 |      1,793 |
+| HTML       |         17 |        710 |         12 |         35 |        757 |
+| CSS        |         17 |        130 |          0 |         49 |        179 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                                       | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                                          |         73 |      2,302 |         37 |        390 |      2,729 |
+| . (Files)                                                                                                                                  |          9 |        555 |         14 |         94 |        663 |
+| footer                                                                                                                                     |          4 |         36 |          0 |         11 |         47 |
+| interview-tips                                                                                                                             |          4 |         99 |          1 |         19 |        119 |
+| job                                                                                                                                        |          4 |        233 |          2 |         40 |        275 |
+| login                                                                                                                                      |          4 |        106 |          2 |         15 |        123 |
+| nav                                                                                                                                        |          4 |        137 |          2 |         21 |        160 |
+| recruiter-dashboard                                                                                                                        |          4 |         51 |          0 |         11 |         62 |
+| recruiter-manage-applications                                                                                                              |          4 |         79 |          1 |         16 |         96 |
+| recruiter-review-application                                                                                                               |          4 |        175 |          7 |         26 |        208 |
+| student-applications                                                                                                                       |          4 |         86 |          0 |         13 |         99 |
+| student-apply-job                                                                                                                          |          4 |        141 |          4 |         20 |        165 |
+| student-bookmarks                                                                                                                          |          4 |         64 |          1 |         13 |         78 |
+| student-dashboard                                                                                                                          |          4 |         67 |          0 |         11 |         78 |
+| student-home                                                                                                                               |          4 |         38 |          0 |         10 |         48 |
+| student-profile                                                                                                                            |          4 |        149 |          0 |         30 |        179 |
+| upload-jobs                                                                                                                                |          4 |         85 |          1 |         19 |        105 |
+| user-signup                                                                                                                                |          4 |        201 |          2 |         21 |        224 |
++--------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                                                                   | language   | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\app.component.css                                                             | CSS        |         10 |          0 |          2 |         12 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\app.component.html                                                            | HTML       |          7 |          0 |          1 |          8 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\app.component.spec.ts                                                         | TypeScript |         27 |          0 |          5 |         32 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\app.component.ts                                                              | TypeScript |         23 |          0 |          5 |         28 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\app.module.ts                                                                 | TypeScript |        135 |          0 |          7 |        142 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\auth.guard.spec.ts                                                            | TypeScript |         12 |          0 |          5 |         17 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\auth.guard.ts                                                                 | TypeScript |         36 |          2 |          4 |         42 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\auth.service.ts                                                               | TypeScript |         72 |          6 |         11 |         89 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\footer\footer.component.css                                                   | CSS        |          0 |          0 |          1 |          1 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\footer\footer.component.html                                                  | HTML       |         10 |          0 |          1 |         11 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\footer\footer.component.spec.ts                                               | TypeScript |         18 |          0 |          6 |         24 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\footer\footer.component.ts                                                    | TypeScript |          8 |          0 |          3 |         11 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\interview-tips\interview-tips.component.css                                   | CSS        |          0 |          0 |          1 |          1 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\interview-tips\interview-tips.component.html                                  | HTML       |         43 |          1 |          8 |         52 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\interview-tips\interview-tips.component.spec.ts                               | TypeScript |         18 |          0 |          6 |         24 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\interview-tips\interview-tips.component.ts                                    | TypeScript |         38 |          0 |          4 |         42 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\job\job.component.css                                                         | CSS        |         40 |          0 |         13 |         53 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\job\job.component.html                                                        | HTML       |         76 |          1 |          4 |         81 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\job\job.component.spec.ts                                                     | TypeScript |         18 |          0 |          6 |         24 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\job\job.component.ts                                                          | TypeScript |         99 |          1 |         17 |        117 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\login\login.component.css                                                     | CSS        |         19 |          0 |          2 |         21 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\login\login.component.html                                                    | HTML       |         41 |          0 |          1 |         42 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\login\login.component.spec.ts                                                 | TypeScript |         18 |          0 |          6 |         24 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\login\login.component.ts                                                      | TypeScript |         28 |          2 |          6 |         36 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\nav\nav.component.css                                                         | CSS        |         16 |          0 |          5 |         21 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\nav\nav.component.html                                                        | HTML       |         55 |          2 |          1 |         58 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\nav\nav.component.spec.ts                                                     | TypeScript |         18 |          0 |          6 |         24 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\nav\nav.component.ts                                                          | TypeScript |         48 |          0 |          9 |         57 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\recruiter-dashboard\recruiter-dashboard.component.css                         | CSS        |          0 |          0 |          1 |          1 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\recruiter-dashboard\recruiter-dashboard.component.html                        | HTML       |         25 |          0 |          1 |         26 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\recruiter-dashboard\recruiter-dashboard.component.spec.ts                     | TypeScript |         18 |          0 |          6 |         24 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\recruiter-dashboard\recruiter-dashboard.component.ts                          | TypeScript |          8 |          0 |          3 |         11 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\recruiter-manage-applications\recruiter-manage-applications.component.css     | CSS        |          0 |          0 |          1 |          1 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\recruiter-manage-applications\recruiter-manage-applications.component.html    | HTML       |         30 |          0 |          1 |         31 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\recruiter-manage-applications\recruiter-manage-applications.component.spec.ts | TypeScript |         18 |          0 |          6 |         24 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\recruiter-manage-applications\recruiter-manage-applications.component.ts      | TypeScript |         31 |          1 |          8 |         40 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\recruiter-review-application\recruiter-review-application.component.css       | CSS        |          0 |          0 |          1 |          1 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\recruiter-review-application\recruiter-review-application.component.html      | HTML       |         83 |          6 |          3 |         92 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\recruiter-review-application\recruiter-review-application.component.spec.ts   | TypeScript |         18 |          0 |          6 |         24 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\recruiter-review-application\recruiter-review-application.component.ts        | TypeScript |         74 |          1 |         16 |         91 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\student-applications\student-applications.component.css                       | CSS        |          0 |          0 |          1 |          1 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\student-applications\student-applications.component.html                      | HTML       |         40 |          0 |          1 |         41 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\student-applications\student-applications.component.spec.ts                   | TypeScript |         18 |          0 |          6 |         24 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\student-applications\student-applications.component.ts                        | TypeScript |         28 |          0 |          5 |         33 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\student-apply-job\student-apply-job.component.css                             | CSS        |          0 |          0 |          1 |          1 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\student-apply-job\student-apply-job.component.html                            | HTML       |         34 |          1 |          2 |         37 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\student-apply-job\student-apply-job.component.spec.ts                         | TypeScript |         18 |          0 |          6 |         24 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\student-apply-job\student-apply-job.component.ts                              | TypeScript |         89 |          3 |         11 |        103 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\student-bookmarks\student-bookmarks.component.css                             | CSS        |          0 |          0 |          1 |          1 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\student-bookmarks\student-bookmarks.component.html                            | HTML       |         18 |          0 |          1 |         19 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\student-bookmarks\student-bookmarks.component.spec.ts                         | TypeScript |         18 |          0 |          6 |         24 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\student-bookmarks\student-bookmarks.component.ts                              | TypeScript |         28 |          1 |          5 |         34 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\student-dashboard\student-dashboard.component.css                             | CSS        |          0 |          0 |          1 |          1 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\student-dashboard\student-dashboard.component.html                            | HTML       |         41 |          0 |          1 |         42 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\student-dashboard\student-dashboard.component.spec.ts                         | TypeScript |         18 |          0 |          6 |         24 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\student-dashboard\student-dashboard.component.ts                              | TypeScript |          8 |          0 |          3 |         11 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\student-home\student-home.component.css                                       | CSS        |          0 |          0 |          1 |          1 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\student-home\student-home.component.html                                      | HTML       |         12 |          0 |          0 |         12 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\student-home\student-home.component.spec.ts                                   | TypeScript |         18 |          0 |          6 |         24 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\student-home\student-home.component.ts                                        | TypeScript |          8 |          0 |          3 |         11 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\student-profile\student-profile.component.css                                 | CSS        |         45 |          0 |         15 |         60 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\student-profile\student-profile.component.html                                | HTML       |         56 |          0 |          1 |         57 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\student-profile\student-profile.component.spec.ts                             | TypeScript |         18 |          0 |          6 |         24 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\student-profile\student-profile.component.ts                                  | TypeScript |         30 |          0 |          8 |         38 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\upload-jobs\upload-jobs.component.css                                         | CSS        |          0 |          0 |          1 |          1 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\upload-jobs\upload-jobs.component.html                                        | HTML       |         20 |          1 |          2 |         23 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\upload-jobs\upload-jobs.component.spec.ts                                     | TypeScript |         18 |          0 |          6 |         24 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\upload-jobs\upload-jobs.component.ts                                          | TypeScript |         47 |          0 |         10 |         57 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\user-signup\user-signup.component.css                                         | CSS        |          0 |          0 |          1 |          1 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\user-signup\user-signup.component.html                                        | HTML       |        119 |          0 |          6 |        125 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\user-signup\user-signup.component.spec.ts                                     | TypeScript |         18 |          0 |          6 |         24 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\user-signup\user-signup.component.ts                                          | TypeScript |         64 |          2 |          8 |         74 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\web.service.ts                                                                | TypeScript |        233 |          6 |         54 |        293 |
+| Total                                                                                                                                      |            |      2,302 |         37 |        390 |      2,729 |
++--------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

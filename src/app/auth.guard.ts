@@ -20,12 +20,12 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const isLoggedIn = this.authService.isLoggedIn$.value;
-  
+      // If the user is not logged in and trying to access a protected route, redirect them to the root ('/')
     if (!isLoggedIn && state.url !== '/') {
       this.router.navigate(['/']);
       return false;
     }
-  
+      // If the user is logged in and trying to access the root ('/'), redirect them to their respective dashboard
     if (isLoggedIn && state.url === '/') {
       const userType = this.authService.getUserType();
       if (userType === 'student') {

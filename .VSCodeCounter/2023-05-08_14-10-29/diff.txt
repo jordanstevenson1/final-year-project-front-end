@@ -1,0 +1,40 @@
+Date : 2023-05-08 14:10:29
+Directory : c:\Users\jorda\Documents\frontend-final-year-project\src\app
+Total : 10 files,  43 codes, 15 comments, 1 blanks, all 59 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| HTML       |          3 |         24 |          1 |         -2 |         23 |
+| TypeScript |          7 |         19 |         14 |          3 |         36 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                                  | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                                     |         10 |         43 |         15 |          1 |         59 |
+| . (Files)                                                                                                                             |          4 |          5 |         10 |         -1 |         14 |
+| login                                                                                                                                 |          2 |          6 |          2 |          0 |          8 |
+| recruiter-review-application                                                                                                          |          1 |         16 |          0 |         -2 |         14 |
+| upload-jobs                                                                                                                           |          2 |         17 |          1 |          4 |         22 |
+| user-signup                                                                                                                           |          1 |         -1 |          2 |          0 |          1 |
++---------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                                                              | language   | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\app.module.ts                                                            | TypeScript |          6 |          0 |          0 |          6 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\auth.guard.ts                                                            | TypeScript |          0 |          2 |         -2 |          0 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\auth.service.ts                                                          | TypeScript |          0 |          3 |          0 |          3 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\login\login.component.html                                               | HTML       |          2 |          0 |         -1 |          1 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\login\login.component.ts                                                 | TypeScript |          4 |          2 |          1 |          7 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\recruiter-review-application\recruiter-review-application.component.html | HTML       |         16 |          0 |         -2 |         14 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\upload-jobs\upload-jobs.component.html                                   | HTML       |          6 |          1 |          1 |          8 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\upload-jobs\upload-jobs.component.ts                                     | TypeScript |         11 |          0 |          3 |         14 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\user-signup\user-signup.component.ts                                     | TypeScript |         -1 |          2 |          0 |          1 |
+| c:\Users\jorda\Documents\frontend-final-year-project\src\app\web.service.ts                                                           | TypeScript |         -1 |          5 |          1 |          5 |
+| Total                                                                                                                                 |            |         43 |         15 |          1 |         59 |
++---------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

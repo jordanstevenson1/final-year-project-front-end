@@ -53,7 +53,8 @@ export class AuthService {
       throw new Error('An error occurred while logging in. Please try again later.');
     }
   }
-  
+
+   // Get the user's ID from session storage
   getUserId(): number | null {
     const user = sessionStorage.getItem('user');
     return user ? JSON.parse(user).id : null;
@@ -67,6 +68,7 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
+ // Check if the user is authenticated
   checkAuth() {
     const user = sessionStorage.getItem('user');
     if (user) {
@@ -78,7 +80,8 @@ export class AuthService {
       this.userSubject.next(null);
     }
   }
-
+  
+ // Get the user's type from session storage
   getUserType(): string | null {
     const user = sessionStorage.getItem('user');
     return user ? JSON.parse(user).userType : null;

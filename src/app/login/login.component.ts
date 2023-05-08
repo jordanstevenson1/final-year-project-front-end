@@ -10,17 +10,24 @@ export class LoginComponent implements OnInit {
   username: string = '';
   password: string = '';
   errorMessage: string = '';
+  passwordVisible = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
+  // Perform login using AuthService
   login() {
     this.authService.login(this.username, this.password).subscribe({
-      next: () => {}, // You can leave this empty or remove it.
+      next: () => {}, 
       error: (error) => {
         console.log("Error response:", error);
         this.errorMessage = error.message;
       }
     });
+  }
+
+    // Toggle password visibility on the UI
+  togglePasswordVisibility() {
+    this.passwordVisible = !this.passwordVisible;
   }
 
   ngOnInit() {

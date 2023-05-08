@@ -1,0 +1,12 @@
+"filename", "language", "TypeScript", "HTML", "comment", "blank", "total"
+"c:\Users\jorda\Documents\frontend-final-year-project\src\app\app.module.ts", "TypeScript", 6, 0, 0, 0, 6
+"c:\Users\jorda\Documents\frontend-final-year-project\src\app\auth.guard.ts", "TypeScript", 0, 0, 2, -2, 0
+"c:\Users\jorda\Documents\frontend-final-year-project\src\app\auth.service.ts", "TypeScript", 0, 0, 3, 0, 3
+"c:\Users\jorda\Documents\frontend-final-year-project\src\app\login\login.component.html", "HTML", 0, 2, 0, -1, 1
+"c:\Users\jorda\Documents\frontend-final-year-project\src\app\login\login.component.ts", "TypeScript", 4, 0, 2, 1, 7
+"c:\Users\jorda\Documents\frontend-final-year-project\src\app\recruiter-review-application\recruiter-review-application.component.html", "HTML", 0, 16, 0, -2, 14
+"c:\Users\jorda\Documents\frontend-final-year-project\src\app\upload-jobs\upload-jobs.component.html", "HTML", 0, 6, 1, 1, 8
+"c:\Users\jorda\Documents\frontend-final-year-project\src\app\upload-jobs\upload-jobs.component.ts", "TypeScript", 11, 0, 0, 3, 14
+"c:\Users\jorda\Documents\frontend-final-year-project\src\app\user-signup\user-signup.component.ts", "TypeScript", -1, 0, 2, 0, 1
+"c:\Users\jorda\Documents\frontend-final-year-project\src\app\web.service.ts", "TypeScript", -1, 0, 5, 1, 5
+"Total", "-", 19, 24, 15, 1, 59

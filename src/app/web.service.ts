@@ -8,7 +8,7 @@ import { throwError } from 'rxjs';
 
 
 
-
+//Define job interface for type checking
 export interface Job {
   jobid: number;
   companyid: number;
@@ -30,6 +30,7 @@ export interface Job {
   errorMessage: string | null;
 }
 
+//Define Student profile interface for type checking
 export interface StudentProfile {
   studentid: number;
   studentforename: string;
@@ -43,6 +44,7 @@ export interface StudentProfile {
   password: string;
 }
 
+//Define application interface for type checking
 export interface Application {
   applicationId: number;
   applicationDate: string;
@@ -64,6 +66,8 @@ export class WebService {
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 
+  //Methods for handling HTTP requests and their functionality
+
   getJobs(page: number, pageSize: number): Observable<{ jobs: Job[], totalPages: number }> {
     return this.http.get<{ jobs: Job[], totalPages: number }>(`${this.API_URL}/jobs?page=${page}&pageSize=${pageSize}`);
   }
@@ -82,6 +86,7 @@ export class WebService {
     if (company) {
       params = params.set('company', company);
     }
+     // Make an HTTP GET request with the built query string to search for jobs
     return this.http.get<{ jobs: Job[] }>(`${this.API_URL}/jobs/search`, { params });
   }
 
@@ -90,17 +95,17 @@ export class WebService {
   }
 
   createStudent(student: any): Observable<any> {
-    return this.http.post(`${this.API_URL}/students`, student)
-      .pipe(
-        catchError(error => {
-          if (error.status === 400 && error.error.error === 'Email or username already exists') {
-            return of({ errorMessage: 'Email or username already exists' });
-          } else {
-            return throwError(error);
-          }
-        })
-      );
+    return this.http.post(`${this.API_URL}/students`, student).pipe(
+      catchError((error) => {
+        if (error.status === 400 && error.error.error === 'Email or username already exists') {
+          return of({ errorMessage: 'Email or username already exists' });
+        } else {
+          return throwError(error);
+        }
+      })
+    );
   }
+  
 
 
   createRecruiter(recruiter: any): Observable<any> {

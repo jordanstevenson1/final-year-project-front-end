@@ -5,10 +5,18 @@
       <form>
         <div class="form-group">
           <label class="form-label" for="customFile">Select CSV file: </label>
-          <input type="file" class="form-control" id="customFile" (change)="onFileSelected($event)">
+          <input type="file" class="form-control" id="customFile" #fileInput (change)="onFileSelected($event)">
         </div>
         <button type="button" class="btn btn-outline-primary my-2" (click)="onUpload()" [disabled]="!selectedFile">Upload</button>
       </form>
+
+      <!-- Display Bootstrap alerts for success and error messages -->
+      <div *ngIf="uploadSuccess" class="alert alert-success mt-3" role="alert">
+        {{ uploadSuccess }}
+      </div>
+      <div *ngIf="uploadError" class="alert alert-danger mt-3" role="alert">
+        {{ uploadError }}
+      </div>
     </div>
   </div>
 </div>
